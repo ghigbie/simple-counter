@@ -12,22 +12,13 @@ const reset = () => {
     renderCounterApp();
 };
 
-const template = (
-    <div>
-        <h1>Count: {count}</h1>
-        <button className="btn btn-default" id="increment" onClick={increment}></button>
-        <button className="btn btn-default" id="decrement" onClick={decrement}></button>
-        <button className="btn btn-default" id="reset" onClick={reset}></button>
-    </div>
-);
-
 const renderCounterApp = () => {
     const template = (
-        <div>
+        <div className="container">
             <h1>Count: {count}</h1>
-            <button className="btn btn-default" id="increment" onClick={increment}></button>
-            <button className="btn btn-default" id="decrement" onClick={decrement}></button>
-            <button className="btn btn-default" id="reset" onClick={reset}></button>
+            <button className="btn btn-default" id="increment" onClick={increment}>+1</button>
+            <button className="btn btn-default" id="decrement" onClick={decrement}>-1</button>
+            <button className="btn btn-default" id="reset" onClick={reset}>Reset</button>
         </div>
     );
     const appRoot = document.getElementById('react-container');
