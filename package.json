@@ -3,5 +3,16 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "George Higbie <gehigbie@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "description": "This ReactJS app is a simple counter that simulates data binding.",
+  "dependencies": {
+    "babel-preset-env": "1.5.2",
+    "babel-preset-react": "6.24.1",
+    "react": "16.0.0",
+    "react-dom": "16.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }
