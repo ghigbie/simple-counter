@@ -1,0 +1,7 @@
+{
+  "name": "counter-simple",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "George Higbie <gehigbie@gmail.com>",
+  "license": "MIT"
+}
