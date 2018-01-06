@@ -1,18 +1,21 @@
 const appRoot = document.getElementById('react-container');
 
 class Counter extends React.Component{
-    increment(){
+    handleIncrement(){
         this.count++;
+        console.log('handleIncrement was called');
         renderApp();
     }
     
-    decrement(){
+    handleDecrement(){
         this.count--;
+        console.log('handleDecrement was called');
         renderApp();
     }
     
-    reset(){
+    handleReset(){
         this.count = 0;
+        console.log('handleReset was called');
         renderApp();
     }
     
@@ -22,13 +25,13 @@ class Counter extends React.Component{
                 <h1>Count: </h1>
                 <button className="btn btn-default" 
                         id="increment"
-                        onClick={this.increment}>+1</button>
+                        onClick={this.handleIncrement.bind(this)}>+1</button>
                 <button className="btn btn-default" 
                         id="decrement"
-                        onClick={this.decrement}>-1</button>
+                        onClick={this.handleDecrement.bind(this)}>-1</button>
                 <button className="btn btn-danger" 
                         id="reset"
-                        onClick={this.reset}>Reset</button>
+                        onClick={this.handleReset.bind(this)}>Reset</button>
             </div>
         );
     }

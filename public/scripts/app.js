@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -20,54 +20,57 @@ var Counter = function (_React$Component) {
     }
 
     _createClass(Counter, [{
-        key: "increment",
-        value: function increment() {
+        key: 'handleIncrement',
+        value: function handleIncrement() {
             this.count++;
+            console.log('handleIncrement was called');
             renderApp();
         }
     }, {
-        key: "decrement",
-        value: function decrement() {
+        key: 'handleDecrement',
+        value: function handleDecrement() {
             this.count--;
+            console.log('handleDecrement was called');
             renderApp();
         }
     }, {
-        key: "reset",
-        value: function reset() {
+        key: 'handleReset',
+        value: function handleReset() {
             this.count = 0;
+            console.log('handleReset was called');
             renderApp();
         }
     }, {
-        key: "render",
+        key: 'render',
         value: function render() {
             return React.createElement(
-                "div",
-                { className: "container" },
+                'div',
+                { className: 'container' },
                 React.createElement(
-                    "h1",
+                    'h1',
                     null,
-                    "Count: "
+                    'Count: '
                 ),
                 React.createElement(
-                    "button",
-                    { className: "btn btn-default",
-                        id: "increment",
-                        onClick: this.increment },
-                    "+1"
+                    'button',
+                    { className: 'btn btn-default',
+                        id: 'increment',
+                        onClick: this.handleIncrement.bind(this) },
+                    '+1'
                 ),
                 React.createElement(
-                    "button",
-                    { className: "btn btn-default",
-                        id: "decrement",
-                        onClick: this.decrement },
-                    "-1"
+                    'button',
+                    { className: 'btn btn-default',
+                        id: 'decrement',
+                        onClick: this.handleDecrement.bind(this) },
+                    '-1'
                 ),
                 React.createElement(
-                    "button",
-                    { className: "btn btn-danger",
-                        id: "reset",
-                        onClick: this.reset },
-                    "Reset"
+                    'button',
+                    { className: 'btn btn-danger',
+                        id: 'reset',
+                        onClick: this.handleReset.bind(this) },
+                    'Reset'
                 )
             );
         }
