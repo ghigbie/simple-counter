@@ -20,6 +20,24 @@ var Counter = function (_React$Component) {
     }
 
     _createClass(Counter, [{
+        key: "increment",
+        value: function increment() {
+            this.count++;
+            renderApp();
+        }
+    }, {
+        key: "decrement",
+        value: function decrement() {
+            this.count--;
+            renderApp();
+        }
+    }, {
+        key: "reset",
+        value: function reset() {
+            this.count = 0;
+            renderApp();
+        }
+    }, {
         key: "render",
         value: function render() {
             return React.createElement(
@@ -32,17 +50,23 @@ var Counter = function (_React$Component) {
                 ),
                 React.createElement(
                     "button",
-                    { className: "btn btn-default", id: "increment" },
+                    { className: "btn btn-default",
+                        id: "increment",
+                        onClick: this.increment },
                     "+1"
                 ),
                 React.createElement(
                     "button",
-                    { className: "btn btn-default", id: "decrement" },
+                    { className: "btn btn-default",
+                        id: "decrement",
+                        onClick: this.decrement },
                     "-1"
                 ),
                 React.createElement(
                     "button",
-                    { className: "btn btn-danger", id: "reset" },
+                    { className: "btn btn-danger",
+                        id: "reset",
+                        onClick: this.reset },
                     "Reset"
                 )
             );
@@ -52,7 +76,11 @@ var Counter = function (_React$Component) {
     return Counter;
 }(React.Component);
 
-ReactDOM.render(React.createElement(Counter, null), appRoot);
+var renderApp = function renderApp() {
+    ReactDOM.render(React.createElement(Counter, null), appRoot);
+};
+
+renderApp();
 
 // let count = 0;
 // const increment = () => {
