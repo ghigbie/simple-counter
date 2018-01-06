@@ -13,10 +13,15 @@ var appRoot = document.getElementById('react-container');
 var Counter = function (_React$Component) {
     _inherits(Counter, _React$Component);
 
-    function Counter() {
+    function Counter(props) {
         _classCallCheck(this, Counter);
 
-        return _possibleConstructorReturn(this, (Counter.__proto__ || Object.getPrototypeOf(Counter)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (Counter.__proto__ || Object.getPrototypeOf(Counter)).call(this, props));
+
+        _this.handleIncrement = _this.handleIncrement.bind(_this);
+        _this.handleDecrement = _this.handleDecrement.bind(_this);
+        _this.handleReset = _this.handleReset.bind(_this);
+        return _this;
     }
 
     _createClass(Counter, [{
@@ -55,21 +60,21 @@ var Counter = function (_React$Component) {
                     'button',
                     { className: 'btn btn-default',
                         id: 'increment',
-                        onClick: this.handleIncrement.bind(this) },
+                        onClick: this.handleIncrement },
                     '+1'
                 ),
                 React.createElement(
                     'button',
                     { className: 'btn btn-default',
                         id: 'decrement',
-                        onClick: this.handleDecrement.bind(this) },
+                        onClick: this.handleDecrement },
                     '-1'
                 ),
                 React.createElement(
                     'button',
                     { className: 'btn btn-danger',
                         id: 'reset',
-                        onClick: this.handleReset.bind(this) },
+                        onClick: this.handleReset },
                     'Reset'
                 )
             );
