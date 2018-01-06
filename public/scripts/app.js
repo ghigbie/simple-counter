@@ -24,7 +24,7 @@ var Counter = function (_React$Component) {
         value: function render() {
             return React.createElement(
                 "div",
-                null,
+                { className: "container" },
                 React.createElement(
                     "h1",
                     null,

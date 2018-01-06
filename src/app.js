@@ -3,7 +3,7 @@ const appRoot = document.getElementById('react-container');
 class Counter extends React.Component{
     render(){
         return(
-            <div>
+            <div className="container">
                 <h1>Count: </h1>
                 <button className="btn btn-default" id="increment">+1</button>
                 <button className="btn btn-default" id="decrement">-1</button>
