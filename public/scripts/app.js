@@ -54,7 +54,7 @@ var Counter = function (_React$Component) {
         value: function handleReset() {
             this.state.count = 0;
             console.log('handleReset was called');
-            this.setState(function (prevState) {
+            this.setState(function () {
                 return {
                     count: 0
                 };
