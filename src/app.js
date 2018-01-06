@@ -12,7 +12,6 @@ class Counter extends React.Component{
     }
     
     handleIncrement(){
-        console.log('handleIncrement was called');
         this.setState((prevState) => {
            return{
                 count: prevState.count +1
@@ -21,7 +20,6 @@ class Counter extends React.Component{
     }
     
     handleDecrement(){
-        console.log('handleDecrement was called');
         if(this.state.count > 0){
             this.setState((prevState) => {
                 return{
@@ -33,7 +31,6 @@ class Counter extends React.Component{
     
     handleReset(){
         this.state.count = 0;
-        console.log('handleReset was called');
         this.setState(() =>{
           return{
               count: 0
