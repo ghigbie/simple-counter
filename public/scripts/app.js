@@ -41,7 +41,7 @@ var Counter = function (_React$Component) {
             if (this.state.count > 0) {
                 //this will only fire if the count value is greater than 0
                 this.setState(function (prevState) {
-                    //here you access to the previousState value via the first arguemnt of the setState function
+                    //here you access to the previousState value via the first arguemnt of the setState functio
                     return {
                         count: prevState.count - 1
                     };
@@ -72,19 +72,22 @@ var Counter = function (_React$Component) {
                 React.createElement(
                     "button",
                     { className: "btn btn-default",
-                        onClick: this.handleIncrement },
+                        onClick: this.handleIncrement,
+                        id: "increment" },
                     "+1"
                 ),
                 React.createElement(
                     "button",
                     { className: "btn btn-default",
-                        onClick: this.handleDecrement },
+                        onClick: this.handleDecrement,
+                        id: "decrement" },
                     "-1"
                 ),
                 React.createElement(
                     "button",
                     { className: "btn btn-default",
-                        onClick: this.handleReset },
+                        onClick: this.handleReset,
+                        id: "reset" },
                     "Reset"
                 )
             );

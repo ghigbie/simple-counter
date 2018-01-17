@@ -19,7 +19,7 @@ class Counter extends React.Component{
     
     handleDecrement(){
         if(this.state.count > 0){  //this will only fire if the count value is greater than 0
-            this.setState((prevState) => {  //here you access to the previousState value via the first arguemnt of the setState function
+            this.setState((prevState) => {  //here you access to the previousState value via the first arguemnt of the setState functio
                 return{
                     count: prevState.count-1
                 };
@@ -40,11 +40,14 @@ class Counter extends React.Component{
             <div className="container">
                 <h1>Count: {this.state.count}</h1>
                 <button className="btn btn-default"
-                        onClick={this.handleIncrement}>+1</button>
+                        onClick={this.handleIncrement}
+                        id="increment">+1</button>
                 <button className="btn btn-default"
-                        onClick={this.handleDecrement}>-1</button>
+                        onClick={this.handleDecrement}
+                        id="decrement">-1</button>
                 <button className="btn btn-default"
-                        onClick={this.handleReset}>Reset</button>
+                        onClick={this.handleReset}
+                        id="reset">Reset</button>
             </div>
         );
     }
