@@ -28,17 +28,31 @@ var Counter = function (_React$Component) {
     _createClass(Counter, [{
         key: "handleIncrement",
         value: function handleIncrement() {
-            this.state.count++;
+            this.setState(function (prevState) {
+                return {
+                    count: prevState.count + 1
+                };
+            });
         }
     }, {
         key: "handleDecrement",
         value: function handleDecrement() {
-            this.state.count--;
+            if (this.state.count > 0) {
+                this.setState(function (prevState) {
+                    return {
+                        count: prevState.count - 1
+                    };
+                });
+            }
         }
     }, {
         key: "handleReset",
         value: function handleReset() {
-            this.state.count = 0;
+            this.setState(function () {
+                return {
+                    count: 0
+                };
+            });
         }
     }, {
         key: "render",
