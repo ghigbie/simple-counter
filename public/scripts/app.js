@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -7,8 +7,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var appRoot = document.getElementById('react-container');
 
 var Counter = function (_React$Component) {
     _inherits(Counter, _React$Component);
@@ -28,70 +26,49 @@ var Counter = function (_React$Component) {
     }
 
     _createClass(Counter, [{
-        key: 'handleIncrement',
+        key: "handleIncrement",
         value: function handleIncrement() {
-            console.log('handleIncrement was called');
-            this.setState(function (prevState) {
-                return {
-                    count: prevState.count + 1
-                };
-            });
+            this.state.count++;
         }
     }, {
-        key: 'handleDecrement',
+        key: "handleDecrement",
         value: function handleDecrement() {
-            console.log('handleDecrement was called');
-            if (this.state.count > 0) {
-                this.setState(function (prevState) {
-                    return {
-                        count: prevState.count - 1
-                    };
-                });
-            }
+            this.state.count--;
         }
     }, {
-        key: 'handleReset',
+        key: "handleReset",
         value: function handleReset() {
             this.state.count = 0;
-            console.log('handleReset was called');
-            this.setState(function () {
-                return {
-                    count: 0
-                };
-            });
         }
     }, {
-        key: 'render',
+        key: "render",
         value: function render() {
             return React.createElement(
-                'div',
-                { className: 'container' },
+                "div",
+                { className: "container" },
                 React.createElement(
-                    'h1',
+                    "h1",
                     null,
-                    'Count: ',
+                    "Count: ",
                     this.state.count
                 ),
                 React.createElement(
-                    'button',
-                    { className: 'btn btn-default',
-                        id: 'increment',
+                    "button",
+                    { className: "btn btn-default",
                         onClick: this.handleIncrement },
-                    '+1'
+                    "+1"
                 ),
                 React.createElement(
-                    'button',
-                    { className: 'btn btn-default',
-                        id: 'decrement',
+                    "button",
+                    { className: "btn btn-default",
                         onClick: this.handleDecrement },
-                    '-1'
+                    "-1"
                 ),
                 React.createElement(
-                    'button',
-                    { className: 'btn btn-danger',
-                        id: 'reset',
+                    "button",
+                    { className: "btn btn-default",
                         onClick: this.handleReset },
-                    'Reset'
+                    "Reset"
                 )
             );
         }
@@ -100,8 +77,73 @@ var Counter = function (_React$Component) {
     return Counter;
 }(React.Component);
 
-var renderApp = function renderApp() {
-    ReactDOM.render(React.createElement(Counter, null), appRoot);
-};
+var appRoot = document.getElementById('react-container');
+ReactDOM.render(React.createElement(Counter, null), appRoot);
 
-renderApp();
+// const appRoot = document.getElementById('react-container');
+
+// class Counter extends React.Component{
+//     constructor(props){
+//         super(props);
+//         this.handleIncrement = this.handleIncrement.bind(this);
+//         this.handleDecrement = this.handleDecrement.bind(this);
+//         this.handleReset = this.handleReset.bind(this);
+//         this.state = {
+//             count: props.count
+//         };
+//     }
+
+//     handleIncrement(){
+//         this.setState((prevState) => {
+//           return{
+//                 count: prevState.count +1
+//           }; 
+//         });
+//     }
+
+//     handleDecrement(){
+//         if(this.state.count > 0){
+//             this.setState((prevState) => {
+//                 return{
+//                     count: prevState.count -1
+//                 };
+//             });
+//         }
+//     }
+
+//     handleReset(){
+//         this.state.count = 0;
+//         this.setState(() =>{
+//           return{
+//               count: 0
+//           };  
+//         });
+//     }
+
+//     render(){
+//         return(
+//             <div className="container">
+//                 <h1>Count: {this.state.count}</h1>
+//                 <button className="btn btn-default" 
+//                         id="increment"
+//                         onClick={this.handleIncrement}>+1</button>
+//                 <button className="btn btn-default" 
+//                         id="decrement"
+//                         onClick={this.handleDecrement}>-1</button>
+//                 <button className="btn btn-danger" 
+//                         id="reset"
+//                         onClick={this.handleReset}>Reset</button>
+//             </div>
+//         );
+//     }
+// }
+
+// Counter.defaultProps = {
+//     count: 0
+// };
+
+// const renderApp = () => {
+//     ReactDOM.render(<Counter />, appRoot);
+// };
+
+// renderApp();
