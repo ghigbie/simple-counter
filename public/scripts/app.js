@@ -29,6 +29,7 @@ var Counter = function (_React$Component) {
         key: "handleIncrement",
         value: function handleIncrement() {
             this.setState(function (prevState) {
+                //here you have access to the previousState value via the first argument of the setState function
                 return {
                     count: prevState.count + 1
                 };
@@ -38,7 +39,9 @@ var Counter = function (_React$Component) {
         key: "handleDecrement",
         value: function handleDecrement() {
             if (this.state.count > 0) {
+                //this will only fire if the count value is greater than 0
                 this.setState(function (prevState) {
+                    //here you access to the previousState value via the first arguemnt of the setState function
                     return {
                         count: prevState.count - 1
                     };

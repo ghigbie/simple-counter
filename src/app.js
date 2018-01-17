@@ -10,7 +10,7 @@ class Counter extends React.Component{
     }
     
     handleIncrement(){
-        this.setState((prevState) => {
+        this.setState((prevState) => {  //here you have access to the previousState value via the first argument of the setState function
             return{
                 count: prevState.count+1
             };
@@ -18,8 +18,8 @@ class Counter extends React.Component{
     }
     
     handleDecrement(){
-        if(this.state.count > 0){
-            this.setState((prevState) => {
+        if(this.state.count > 0){  //this will only fire if the count value is greater than 0
+            this.setState((prevState) => {  //here you access to the previousState value via the first arguemnt of the setState function
                 return{
                     count: prevState.count-1
                 };
