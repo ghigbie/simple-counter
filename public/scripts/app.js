@@ -26,6 +26,13 @@ var Counter = function (_React$Component) {
     }
 
     _createClass(Counter, [{
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate() {
+            if (prevState !== this.state.count) {
+                localStorage.setItem('count', this.state.count);
+            }
+        }
+    }, {
         key: 'handleIncrement',
         value: function handleIncrement() {
             var count = parseInt(localStorage.getItem('count'), 10) + 1;
