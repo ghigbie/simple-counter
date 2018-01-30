@@ -6,8 +6,10 @@
   "license": "MIT",
   "description": "This ReactJS app is a simple counter that simulates data binding.",
   "dependencies": {
+    "babel-cli": "6.24.1",
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "6.24.1",
+    "live-server": "^1.2.0",
     "react": "16.0.0",
     "react-dom": "16.0.0"
   },
