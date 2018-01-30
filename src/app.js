@@ -20,8 +20,9 @@ class Counter extends React.Component{
     }
     
     handleDecrement(){
+        let count = parseInt(localStorage.getItem('count'));
         if(parseInt(localStorage.getItem('count'), 10) > 0){
-            let count = parseInt(localStorage.getItem('count'), 10) -1;
+            count--;
             localStorage.setItem('count', count);
         }
         if(this.state.count > 0){  //this will only fire if the count value is greater than 0

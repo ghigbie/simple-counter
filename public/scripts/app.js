@@ -40,9 +40,10 @@ var Counter = function (_React$Component) {
     }, {
         key: 'handleDecrement',
         value: function handleDecrement() {
+            var count = parseInt(localStorage.getItem('count'));
             if (parseInt(localStorage.getItem('count'), 10) > 0) {
-                var _count = parseInt(localStorage.getItem('count'), 10) - 1;
-                localStorage.setItem('count', _count);
+                count--;
+                localStorage.setItem('count', count);
             }
             if (this.state.count > 0) {
                 //this will only fire if the count value is greater than 0
