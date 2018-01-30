@@ -20,7 +20,7 @@ var Counter = function (_React$Component) {
         _this.handleDecrement = _this.handleDecrement.bind(_this);
         _this.handleReset = _this.handleReset.bind(_this);
         _this.state = {
-            count: parseInt(localStorage.getItem('count'), 10)
+            count: 0
         };
         return _this;
     }
@@ -30,6 +30,12 @@ var Counter = function (_React$Component) {
         value: function componentDidMountt() {
             var stringCount = localStorage.getItem('count');
             var count = parseInt(stringCount, 10);
+
+            if (!isNaN(count)) {
+                this.setState(function () {
+                    return { count: count };
+                });
+            }
         }
     }, {
         key: 'componentDidUpdate',
@@ -41,29 +47,22 @@ var Counter = function (_React$Component) {
     }, {
         key: 'handleIncrement',
         value: function handleIncrement() {
-            var count = parseInt(localStorage.getItem('count'), 10) + 1;
-            localStorage.setItem('count', count);
-            this.setState(function () {
+            this.setState(function (prevState) {
                 //here you have access to the previousState value via the first argument of the setState function
                 return {
-                    count: count
+                    count: prevState + 1
                 };
             });
         }
     }, {
         key: 'handleDecrement',
         value: function handleDecrement() {
-            var count = parseInt(localStorage.getItem('count'));
-            if (parseInt(localStorage.getItem('count'), 10) > 0) {
-                count--;
-                localStorage.setItem('count', count);
-            }
             if (this.state.count > 0) {
                 //this will only fire if the count value is greater than 0
-                this.setState(function () {
+                this.setState(function (prevState) {
                     //here you access to the previousState value via the first arguemnt of the setState functio
                     return {
-                        count: count
+                        count: prevState - 1
                     };
                 });
             }

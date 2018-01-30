@@ -5,13 +5,17 @@ class Counter extends React.Component{
         this.handleDecrement = this.handleDecrement.bind(this);
         this.handleReset = this.handleReset.bind(this);
         this.state = {
-            count: parseInt(localStorage.getItem('count'), 10)
+            count: 0
         };
     }
     
     componentDidMountt(){
         const stringCount = localStorage.getItem('count');
         const count = parseInt(stringCount, 10);
+        
+        if(!isNaN(count)){
+            this.setState(() => ({count: count}));
+        }
     }
     
     componentDidUpdate(prevProps, prevState){
@@ -21,25 +25,18 @@ class Counter extends React.Component{
     }
     
     handleIncrement(){
-        let count = parseInt(localStorage.getItem('count'), 10) + 1;
-        localStorage.setItem('count', count);
-        this.setState(() => {  //here you have access to the previousState value via the first argument of the setState function
+        this.setState((prevState) => {  //here you have access to the previousState value via the first argument of the setState function
             return{
-                count: count
+                count: prevState +1
             };
         });
     }
     
     handleDecrement(){
-        let count = parseInt(localStorage.getItem('count'));
-        if(parseInt(localStorage.getItem('count'), 10) > 0){
-            count--;
-            localStorage.setItem('count', count);
-        }
         if(this.state.count > 0){  //this will only fire if the count value is greater than 0
-            this.setState(() => {  //here you access to the previousState value via the first arguemnt of the setState functio
+            this.setState((prevState) => {  //here you access to the previousState value via the first arguemnt of the setState functio
                 return{
-                    count: count
+                    count: prevState -1
                 };
             });
         }
