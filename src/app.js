@@ -20,8 +20,10 @@ class Counter extends React.Component{
     }
     
     handleDecrement(){
-        let count = parseInt(localStorage.getItem('count'), 10) -1;
-        localStorage.setItem('count', count);
+        if(parseInt(localStorage.getItem('count'), 10) > 0){
+            let count = parseInt(localStorage.getItem('count'), 10) -1;
+            localStorage.setItem('count', count);
+        }
         if(this.state.count > 0){  //this will only fire if the count value is greater than 0
             this.setState(() => {  //here you access to the previousState value via the first arguemnt of the setState functio
                 return{
@@ -32,6 +34,7 @@ class Counter extends React.Component{
     }
     
     handleReset(){
+        localStorage.clear();
         let count = 0;
         localStorage.setItem('count', count);
         this.setState(() => {
