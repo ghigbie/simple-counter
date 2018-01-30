@@ -20,7 +20,7 @@ var Counter = function (_React$Component) {
         _this.handleDecrement = _this.handleDecrement.bind(_this);
         _this.handleReset = _this.handleReset.bind(_this);
         _this.state = {
-            count: parseInt(localStorage.getItem('count'))
+            count: parseInt(localStorage.getItem('count'), 10)
         };
         return _this;
     }
@@ -30,7 +30,7 @@ var Counter = function (_React$Component) {
         value: function handleIncrement() {
             var count = parseInt(localStorage.getItem('count'), 10) + 1;
             localStorage.setItem('count', count);
-            this.setState(function (prevState) {
+            this.setState(function () {
                 //here you have access to the previousState value via the first argument of the setState function
                 return {
                     count: count
@@ -44,7 +44,7 @@ var Counter = function (_React$Component) {
             localStorage.setItem('count', count);
             if (this.state.count > 0) {
                 //this will only fire if the count value is greater than 0
-                this.setState(function (prevState) {
+                this.setState(function () {
                     //here you access to the previousState value via the first arguemnt of the setState functio
                     return {
                         count: count
@@ -55,9 +55,11 @@ var Counter = function (_React$Component) {
     }, {
         key: 'handleReset',
         value: function handleReset() {
+            var count = 0;
+            localStorage.setItem('count', count);
             this.setState(function () {
                 return {
-                    count: 0
+                    count: count
                 };
             });
         }
