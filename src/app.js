@@ -24,10 +24,12 @@ class Counter extends React.Component{
         }
     }
     
+    
+    
     handleIncrement(){
         this.setState((prevState) => {  //here you have access to the previousState value via the first argument of the setState function
             return{
-                count: prevState +1
+                count: prevState.count+1
             };
         });
     }
@@ -36,19 +38,16 @@ class Counter extends React.Component{
         if(this.state.count > 0){  //this will only fire if the count value is greater than 0
             this.setState((prevState) => {  //here you access to the previousState value via the first arguemnt of the setState functio
                 return{
-                    count: prevState -1
+                    count: prevState.count-1
                 };
             });
         }
     }
     
     handleReset(){
-        localStorage.clear();
-        let count = 0;
-        localStorage.setItem('count', count);
         this.setState(() => {
             return{
-                count: count
+                count: 0
             };
         });
     }

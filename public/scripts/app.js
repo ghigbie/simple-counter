@@ -50,7 +50,7 @@ var Counter = function (_React$Component) {
             this.setState(function (prevState) {
                 //here you have access to the previousState value via the first argument of the setState function
                 return {
-                    count: prevState + 1
+                    count: prevState.count + 1
                 };
             });
         }
@@ -62,7 +62,7 @@ var Counter = function (_React$Component) {
                 this.setState(function (prevState) {
                     //here you access to the previousState value via the first arguemnt of the setState functio
                     return {
-                        count: prevState - 1
+                        count: prevState.count - 1
                     };
                 });
             }
@@ -70,12 +70,9 @@ var Counter = function (_React$Component) {
     }, {
         key: 'handleReset',
         value: function handleReset() {
-            localStorage.clear();
-            var count = 0;
-            localStorage.setItem('count', count);
             this.setState(function () {
                 return {
-                    count: count
+                    count: 0
                 };
             });
         }
