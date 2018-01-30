@@ -116,9 +116,5 @@ var Counter = function (_React$Component) {
     return Counter;
 }(React.Component);
 
-Counter.defaultProps = {
-    count: 0
-};
-
 var appRoot = document.getElementById('react-container');
 ReactDOM.render(React.createElement(Counter, null), appRoot);

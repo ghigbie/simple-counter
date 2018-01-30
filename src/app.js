@@ -70,9 +70,6 @@ class Counter extends React.Component{
     }
 }
 
-Counter.defaultProps = {
-    count: 0
-};
 
 const appRoot = document.getElementById('react-container');
 ReactDOM.render(<Counter />, appRoot);
