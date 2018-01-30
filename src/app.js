@@ -5,23 +5,27 @@ class Counter extends React.Component{
         this.handleDecrement = this.handleDecrement.bind(this);
         this.handleReset = this.handleReset.bind(this);
         this.state = {
-            count: props.count
+            count: parseInt(localStorage.getItem('count'))
         };
     }
     
     handleIncrement(){
+        let count = parseInt(localStorage.getItem('count'), 10) + 1;
+        localStorage.setItem('count', count);
         this.setState((prevState) => {  //here you have access to the previousState value via the first argument of the setState function
             return{
-                count: prevState.count+1
+                count: count
             };
         });
     }
     
     handleDecrement(){
+        let count = parseInt(localStorage.getItem('count'), 10) -1;
+        localStorage.setItem('count', count);
         if(this.state.count > 0){  //this will only fire if the count value is greater than 0
             this.setState((prevState) => {  //here you access to the previousState value via the first arguemnt of the setState functio
                 return{
-                    count: prevState.count-1
+                    count: count
                 };
             });
         }

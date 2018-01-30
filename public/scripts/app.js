@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -20,36 +20,40 @@ var Counter = function (_React$Component) {
         _this.handleDecrement = _this.handleDecrement.bind(_this);
         _this.handleReset = _this.handleReset.bind(_this);
         _this.state = {
-            count: props.count
+            count: parseInt(localStorage.getItem('count'))
         };
         return _this;
     }
 
     _createClass(Counter, [{
-        key: "handleIncrement",
+        key: 'handleIncrement',
         value: function handleIncrement() {
+            var count = parseInt(localStorage.getItem('count'), 10) + 1;
+            localStorage.setItem('count', count);
             this.setState(function (prevState) {
                 //here you have access to the previousState value via the first argument of the setState function
                 return {
-                    count: prevState.count + 1
+                    count: count
                 };
             });
         }
     }, {
-        key: "handleDecrement",
+        key: 'handleDecrement',
         value: function handleDecrement() {
+            var count = parseInt(localStorage.getItem('count'), 10) - 1;
+            localStorage.setItem('count', count);
             if (this.state.count > 0) {
                 //this will only fire if the count value is greater than 0
                 this.setState(function (prevState) {
                     //here you access to the previousState value via the first arguemnt of the setState functio
                     return {
-                        count: prevState.count - 1
+                        count: count
                     };
                 });
             }
         }
     }, {
-        key: "handleReset",
+        key: 'handleReset',
         value: function handleReset() {
             this.setState(function () {
                 return {
@@ -58,37 +62,37 @@ var Counter = function (_React$Component) {
             });
         }
     }, {
-        key: "render",
+        key: 'render',
         value: function render() {
             return React.createElement(
-                "div",
-                { className: "container" },
+                'div',
+                { className: 'container' },
                 React.createElement(
-                    "h1",
+                    'h1',
                     null,
-                    "Count: ",
+                    'Count: ',
                     this.state.count
                 ),
                 React.createElement(
-                    "button",
-                    { className: "btn btn-default",
+                    'button',
+                    { className: 'btn btn-default',
                         onClick: this.handleIncrement,
-                        id: "increment" },
-                    "+1"
+                        id: 'increment' },
+                    '+1'
                 ),
                 React.createElement(
-                    "button",
-                    { className: "btn btn-default",
+                    'button',
+                    { className: 'btn btn-default',
                         onClick: this.handleDecrement,
-                        id: "decrement" },
-                    "-1"
+                        id: 'decrement' },
+                    '-1'
                 ),
                 React.createElement(
-                    "button",
-                    { className: "btn btn-default",
+                    'button',
+                    { className: 'btn btn-default',
                         onClick: this.handleReset,
-                        id: "reset" },
-                    "Reset"
+                        id: 'reset' },
+                    'Reset'
                 )
             );
         }
