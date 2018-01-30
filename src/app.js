@@ -5,7 +5,7 @@ class Counter extends React.Component{
         this.handleDecrement = this.handleDecrement.bind(this);
         this.handleReset = this.handleReset.bind(this);
         this.state = {
-            count: 0
+            count: parseInt(localStorage.getItem('count'), 10)
         };
     }
     
@@ -14,12 +14,12 @@ class Counter extends React.Component{
         const count = parseInt(stringCount, 10);
         
         if(!isNaN(count)){
-            this.setState(() => ({count: count}));
+            this.setState(() => ({ count })); //es6 shorthand syntax
         }
     }
     
     componentDidUpdate(prevProps, prevState){
-        if (prevState !== this.state.count){
+        if (prevState.count !== this.state.count){
             localStorage.setItem('count', this.state.count)
         }
     }

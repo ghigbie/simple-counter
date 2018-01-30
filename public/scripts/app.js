@@ -20,7 +20,7 @@ var Counter = function (_React$Component) {
         _this.handleDecrement = _this.handleDecrement.bind(_this);
         _this.handleReset = _this.handleReset.bind(_this);
         _this.state = {
-            count: 0
+            count: parseInt(localStorage.getItem('count'), 10)
         };
         return _this;
     }
@@ -34,13 +34,13 @@ var Counter = function (_React$Component) {
             if (!isNaN(count)) {
                 this.setState(function () {
                     return { count: count };
-                });
+                }); //es6 shorthand syntax
             }
         }
     }, {
         key: 'componentDidUpdate',
         value: function componentDidUpdate(prevProps, prevState) {
-            if (prevState !== this.state.count) {
+            if (prevState.count !== this.state.count) {
                 localStorage.setItem('count', this.state.count);
             }
         }
